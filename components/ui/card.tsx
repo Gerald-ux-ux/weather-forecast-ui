@@ -1,19 +1,18 @@
-import React from 'react';
-
+import React from "react";
 
 type CardProps = {
-    
-}
-export default function Card() {
+  cardHeading: string;
+  cardBody: string | React.ReactElement;
+  cardFooter: string;
+};
+export default function Card({ cardHeading, cardBody, cardFooter }: CardProps) {
   return (
-    <div className="card card-image-cover">
-      <div className="card-body">
-        <h2 className="card-header">Maximizing Your Productivity at Work</h2>
-        <p className="text-content2">
-          Are you looking to increase your productivity at work?
-        </p>
+    <div className="card  w-48">
+      <div className="card-body  flex flex-col items-center justify-center ">
+        <h2 className="card-header">{cardHeading} </h2>
+        <p className="text-content2">{cardBody}</p>
         <div className="card-footer">
-          <button className="btn-secondary btn">Learn More</button>
+          <p>{cardFooter} </p>
         </div>
       </div>
     </div>

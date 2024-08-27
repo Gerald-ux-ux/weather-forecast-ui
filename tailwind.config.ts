@@ -6,7 +6,15 @@ const config: Config = {
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
-  theme: {},
+  theme: {
+    extend: {
+      textColor: {},
+      backgroundColor: {},
+      borderColor: {
+        primary: "#343434",
+      },
+    },
+  },
   plugins: [require("rippleui")],
 };
 export default config;
