@@ -5,12 +5,10 @@ import { getCardinalDirection } from "@/lib/functions";
 import { CityClimate } from "@/types/app-types";
 type CityClimateDetailComponentProps = {
   climate: CityClimate;
-  unit: "C" | "F";
 };
 
 export default function CityClimateDetails({
   climate,
-  unit,
 }: CityClimateDetailComponentProps) {
   return (
     <div>

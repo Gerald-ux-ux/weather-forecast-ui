@@ -1,10 +1,7 @@
 "use client";
-import Card from "@/components/ui/card";
 import CityClimateComponent from "@/components/ui/city-climate-component";
 import SideBar from "@/components/ui/side-bar";
 import TopBar from "@/components/ui/top-bar";
-import { getCardinalDirection } from "@/lib/functions";
-import { SlCompass } from "react-icons/sl";
 import useWeather from "@/hooks/useWeather";
 import TodaysClimate from "@/components/ui/todays-climate";
 import CityClimateDetails from "@/components/ui/city-climate-details";
@@ -32,7 +29,7 @@ export default function Home() {
             <TodaysClimate cityClimate={cityClimate!} unit={temperatureUnit} />
           </div>
           <CityClimateComponent unit={temperatureUnit} climate={cityClimate!} />
-          <CityClimateDetails unit={temperatureUnit} climate={cityClimate!} />
+          <CityClimateDetails climate={cityClimate!} />
         </div>
       </div>
     </main>

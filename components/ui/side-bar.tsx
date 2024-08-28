@@ -1,4 +1,3 @@
-import { convertTemperature, formatDate } from "@/lib/functions";
 import { CityClimate } from "@/types/app-types";
 import React from "react";
 import TodaysClimate from "./todays-climate";
