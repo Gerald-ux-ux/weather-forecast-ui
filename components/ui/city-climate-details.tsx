@@ -3,7 +3,7 @@ import Card from "./card";
 import { SlCompass } from "react-icons/sl";
 import { getCardinalDirection } from "@/lib/functions";
 import { CityClimate } from "@/types/app-types";
-import Loader from "./loader-";
+import Loader from "./loader";
 type CityClimateDetailComponentProps = {
   climate: CityClimate;
   loading: boolean;

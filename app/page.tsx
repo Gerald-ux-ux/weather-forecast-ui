@@ -5,14 +5,12 @@ import TopBar from "@/components/ui/top-bar";
 import useWeather from "@/hooks/useWeather";
 import TodaysClimate from "@/components/ui/todays-climate";
 import CityClimateDetails from "@/components/ui/city-climate-details";
-import Skeleton from "react-loading-skeleton";
 
 export default function Home() {
   const {
     handleGetCityClimate,
     loading,
     cityClimate,
-    setCityClimate,
     temperatureUnit,
     setTemperatureUnit,
   } = useWeather();

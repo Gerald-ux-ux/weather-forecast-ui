@@ -1,7 +1,7 @@
 import React from "react";
 import Card from "./card";
 import Skeleton from "react-loading-skeleton";
-import "react-loading-skeleton/dist/skeleton.css"; // Import the skeleton styles
+import "react-loading-skeleton/dist/skeleton.css";
 
 type LoaderProps = {
   skeletons: number;

@@ -10,7 +10,7 @@ import {
   currentDate,
   formatDate,
 } from "@/lib/functions";
-import Loader from "./loader-";
+import Loader from "./loader";
 
 type CityClimateComponentProps = {
   climate: CityClimate;

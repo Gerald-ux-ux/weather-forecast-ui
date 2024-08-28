@@ -5,7 +5,7 @@ import {
 } from "@/lib/functions";
 import { CityClimate } from "@/types/app-types";
 import React from "react";
-import Loader from "./loader-";
+import Loader from "./loader";
 
 type IProps = {
   cityClimate: CityClimate;
