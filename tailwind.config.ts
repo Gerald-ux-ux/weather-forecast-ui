@@ -8,13 +8,16 @@ const config: Config = {
   ],
   theme: {
     extend: {
-      backgroundImage: {
-        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
-        "gradient-conic":
-          "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+      textColor: {
+        primary: "#52A9FF",
+      },
+      backgroundColor: {},
+      borderColor: {
+        primary: "#343434",
+        brand: "#11294D",
       },
     },
   },
-  plugins: [],
+  plugins: [require("rippleui")],
 };
 export default config;
