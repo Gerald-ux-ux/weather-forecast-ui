@@ -16,7 +16,7 @@ export default function Card({
 }: CardProps) {
   return (
     <div className={clsx("card bg-transparent border border-primary")}>
-      <div className="card-body  flex flex-col items-center justify-center ">
+      <div className="card-body   flex flex-col items-center justify-center ">
         <h2 className="card-header text-primary">{cardHeading} </h2>
         {cardIcon ? (
           <Image src={cardIcon} alt="Icon" />
