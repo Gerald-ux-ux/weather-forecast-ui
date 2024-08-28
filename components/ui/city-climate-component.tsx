@@ -33,7 +33,14 @@ export default function CityClimateComponent({
             )}°${unit}`}
           />
         ))}
+
+      
       </div>
     </div>
   );
 }
+
+
+
+
+

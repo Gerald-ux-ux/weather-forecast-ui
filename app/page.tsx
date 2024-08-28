@@ -3,14 +3,11 @@ import Card from "@/components/ui/card";
 import CityClimateComponent from "@/components/ui/city-climate-component";
 import SideBar from "@/components/ui/side-bar";
 import TopBar from "@/components/ui/top-bar";
-import {
-  convertTemperature,
-  formatDate,
-  getCardinalDirection,
-} from "@/lib/functions";
+import { getCardinalDirection } from "@/lib/functions";
 import { SlCompass } from "react-icons/sl";
 import useWeather from "@/hooks/useWeather";
 import TodaysClimate from "@/components/ui/todays-climate";
+import CityClimateDetails from "@/components/ui/city-climate-details";
 
 export default function Home() {
   const {
@@ -35,35 +32,7 @@ export default function Home() {
             <TodaysClimate cityClimate={cityClimate!} unit={temperatureUnit} />
           </div>
           <CityClimateComponent unit={temperatureUnit} climate={cityClimate!} />
-          {cityClimate?.list.slice(0, 1).map((wind) => (
-            <div
-              key={wind.dt}
-              className="flex md:flex-row flex-col md:gap-0 gap-6 items-center justify-evenly "
-            >
-              <Card
-                cardHeading="Wind Status"
-                cardBody={`${wind.wind.speed.toFixed()} Km/h`}
-                cardFooter={
-                  <span className="flex items-center gap-2">
-                    <SlCompass />
-                    {getCardinalDirection(wind.wind.deg)}
-                  </span>
-                }
-              />
-
-              <Card
-                cardHeading="Humidity"
-                cardBody={`${wind.main.humidity}%`}
-                cardFooter={
-                  <progress
-                    className="progress progress-primary"
-                    value={wind.main.humidity}
-                    max="100"
-                  />
-                }
-              />
-            </div>
-          ))}
+          <CityClimateDetails unit={temperatureUnit} climate={cityClimate!} />
         </div>
       </div>
     </main>
