@@ -2,14 +2,16 @@ import React from "react";
 import Card from "./card";
 import { CityClimate } from "@/types/app-types";
 
-import { formatDate } from "@/lib/functions";
+import { convertTemperature, formatDate } from "@/lib/functions";
 
 type CityClimateComponentProps = {
   climate: CityClimate;
+  unit: "C" | "F";
 };
 
 export default function CityClimateComponent({
   climate,
+  unit,
 }: CityClimateComponentProps) {
   return (
     <div className="">
@@ -24,9 +26,11 @@ export default function CityClimateComponent({
                 alt={weather.weather[0].description}
               />
             }
-            cardFooter={`${Math.round(weather.main.temp_min)}°F - ${Math.round(
-              weather.main.temp_max
-            )}°C`}
+            cardFooter={`${Math.round(
+              convertTemperature(weather.main.temp_min, unit)
+            )}°${unit} - ${Math.round(
+              convertTemperature(weather.main.temp_max, unit)
+            )}°${unit}`}
           />
         ))}
       </div>

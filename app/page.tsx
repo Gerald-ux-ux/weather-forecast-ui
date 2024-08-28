@@ -8,9 +8,11 @@ import { CityClimate } from "@/types/app-types";
 import { useState } from "react";
 import { getCardinalDirection } from "@/lib/functions";
 import { SlCompass } from "react-icons/sl";
+
 export default function Home() {
   const [cityClimate, setCityClimate] = useState<CityClimate>();
   const [loading, setLoading] = useState<boolean>(false);
+  const [temperatureUnit, setTemperatureUnit] = useState<"C" | "F">("C");
 
   async function handleGetCityClimate(lat: number, lon: number) {
     setLoading(true);
@@ -24,8 +26,12 @@ export default function Home() {
       <div className="flex  p-4 gap-4 items-start w-full">
         <SideBar />
         <div className="flex gap-12 w-full flex-col">
-          <TopBar onDataFetch={handleGetCityClimate} />
-          <CityClimateComponent climate={cityClimate!} />
+          <TopBar
+            onUnitChange={setTemperatureUnit}
+            currentUnit={temperatureUnit}
+            onDataFetch={handleGetCityClimate}
+          />
+          <CityClimateComponent unit={temperatureUnit} climate={cityClimate!} />
           {cityClimate?.list.slice(0, 1).map((wind) => (
             <div
               key={wind.dt}
