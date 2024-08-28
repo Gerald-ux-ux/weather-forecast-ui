@@ -15,6 +15,14 @@ export type CityClimate = {
   cnt: number;
   list: {
     dt: number;
+    main: {
+      temp: number;
+      feels_like: number;
+      temp_min: number;
+      temp_max: number;
+      pressure: number;
+      humidity: number;
+    };
     weather: {
       id: number;
       main: string;
@@ -29,6 +37,21 @@ export type CityClimate = {
       deg: number;
       gust: number;
     };
+    visibility: number;
+    pop: number;
+    sys: {
+      pod: string;
+    };
     dt_txt: string;
   }[];
+  city: {
+    id: number;
+    name: string;
+    coord: {
+      lat: number;
+      lon: number;
+    };
+    country: string;
+    population: number;
+  };
 };

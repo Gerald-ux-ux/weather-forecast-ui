@@ -8,10 +8,13 @@ const config: Config = {
   ],
   theme: {
     extend: {
-      textColor: {},
+      textColor: {
+        primary: "#52A9FF",
+      },
       backgroundColor: {},
       borderColor: {
         primary: "#343434",
+        brand: "#11294D",
       },
     },
   },
