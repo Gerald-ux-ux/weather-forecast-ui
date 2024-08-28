@@ -27,11 +27,11 @@ export default function TodaysClimate({ cityClimate, unit, loading }: IProps) {
       )}
 
       {todaysAverage.slice(0, 1).map((weather) => (
-        <div className="flex  text-primary p-4 gap-6  flex-col">
-          <div
-            className="flex  h-full justify-between items-center gap-6 flex-col"
-            key={weather.date}
-          >
+        <div
+          key={weather.date}
+          className="flex  text-primary p-4 gap-6  flex-col"
+        >
+          <div className="flex  h-full justify-between items-center gap-6 flex-col">
             <img
               height={80}
               width={80}
