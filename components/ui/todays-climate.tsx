@@ -5,14 +5,18 @@ import {
 } from "@/lib/functions";
 import { CityClimate } from "@/types/app-types";
 import React from "react";
+import Loader from "./loader-";
 
 type IProps = {
   cityClimate: CityClimate;
   unit: "C" | "F";
+  loading: boolean;
 };
 
-export default function TodaysClimate({ cityClimate, unit }: IProps) {
+export default function TodaysClimate({ cityClimate, unit, loading }: IProps) {
   const todaysAverage = aggregateDailyData(cityClimate?.list);
+
+  if (loading) return <Loader sideBarLoader skeletons={1} />;
 
   return (
     <div className="b">

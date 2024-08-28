@@ -1,6 +1,8 @@
 import React from "react";
 import Card from "./card";
 import { CityClimate } from "@/types/app-types";
+import Skeleton from "react-loading-skeleton";
+import "react-loading-skeleton/dist/skeleton.css"; // Import the skeleton styles
 
 import {
   aggregateDailyData,
@@ -8,16 +10,23 @@ import {
   currentDate,
   formatDate,
 } from "@/lib/functions";
+import Loader from "./loader-";
 
 type CityClimateComponentProps = {
   climate: CityClimate;
   unit: "C" | "F";
+  loading: boolean; // Add a loading prop
 };
 
 export default function CityClimateComponent({
   climate,
   unit,
+  loading,
 }: CityClimateComponentProps) {
+  if (loading) {
+    return <Loader skeletons={3} />;
+  }
+
   //  Hourly data into daily averages
   const dailyAverages = aggregateDailyData(climate?.list);
 
@@ -28,7 +37,7 @@ export default function CityClimateComponent({
 
   return (
     <div className="">
-      <div className="flex  flex-col md:flex-row gap-3 w-full justify-evenly items-center  ">
+      <div className="flex flex-col md:flex-row gap-3 w-full justify-evenly items-center">
         {futureWeather.map((weather, index) => (
           <Card
             key={index}

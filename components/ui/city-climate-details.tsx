@@ -3,13 +3,17 @@ import Card from "./card";
 import { SlCompass } from "react-icons/sl";
 import { getCardinalDirection } from "@/lib/functions";
 import { CityClimate } from "@/types/app-types";
+import Loader from "./loader-";
 type CityClimateDetailComponentProps = {
   climate: CityClimate;
+  loading: boolean;
 };
 
 export default function CityClimateDetails({
   climate,
+  loading,
 }: CityClimateDetailComponentProps) {
+  if (loading) return <Loader skeletons={2} />;
   return (
     <div>
       {climate?.list.slice(0, 1).map((wind) => (

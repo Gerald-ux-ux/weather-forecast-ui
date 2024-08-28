@@ -5,6 +5,7 @@ import TopBar from "@/components/ui/top-bar";
 import useWeather from "@/hooks/useWeather";
 import TodaysClimate from "@/components/ui/todays-climate";
 import CityClimateDetails from "@/components/ui/city-climate-details";
+import Skeleton from "react-loading-skeleton";
 
 export default function Home() {
   const {
@@ -18,7 +19,11 @@ export default function Home() {
   return (
     <main className="flex min-h-screen flex-col  items-center justify-between py-2  md:p-0 p-4">
       <div className="flex  p-4 gap-4 items-start w-full">
-        <SideBar unit={temperatureUnit} cityClimate={cityClimate!} />
+        <SideBar
+          loading={loading}
+          unit={temperatureUnit}
+          cityClimate={cityClimate!}
+        />
         <div className="flex gap-12 w-full flex-col">
           <TopBar
             onUnitChange={setTemperatureUnit}
@@ -26,10 +31,27 @@ export default function Home() {
             onDataFetch={handleGetCityClimate}
           />
           <div className="block md:hidden">
-            <TodaysClimate cityClimate={cityClimate!} unit={temperatureUnit} />
+            <TodaysClimate
+              loading={loading}
+              cityClimate={cityClimate!}
+              unit={temperatureUnit}
+            />
           </div>
-          <CityClimateComponent unit={temperatureUnit} climate={cityClimate!} />
-          <CityClimateDetails climate={cityClimate!} />
+
+          {!cityClimate?.list.length ? (
+            <span className="items-center text-primary/50 flex justify-center mt-12">
+              Please enter a city name
+            </span>
+          ) : (
+            <>
+              <CityClimateComponent
+                unit={temperatureUnit}
+                loading={loading}
+                climate={cityClimate!}
+              />
+              <CityClimateDetails loading={loading} climate={cityClimate!} />
+            </>
+          )}
         </div>
       </div>
     </main>
