@@ -1,30 +1,25 @@
 "use client";
-import { getCityClimate } from "@/actions/climate/actions";
 import Card from "@/components/ui/card";
 import CityClimateComponent from "@/components/ui/city-climate-component";
 import SideBar from "@/components/ui/side-bar";
 import TopBar from "@/components/ui/top-bar";
-import { CityClimate } from "@/types/app-types";
-import { useState } from "react";
 import { getCardinalDirection } from "@/lib/functions";
 import { SlCompass } from "react-icons/sl";
+import useWeather from "@/hooks/useWeather";
 
 export default function Home() {
-  const [cityClimate, setCityClimate] = useState<CityClimate>();
-  const [loading, setLoading] = useState<boolean>(false);
-  const [temperatureUnit, setTemperatureUnit] = useState<"C" | "F">("C");
-
-  async function handleGetCityClimate(lat: number, lon: number) {
-    setLoading(true);
-    const climate: CityClimate = await getCityClimate(lat, lon);
-    console.log("climate", climate);
-    setCityClimate(climate);
-    setLoading(false);
-  }
+  const {
+    handleGetCityClimate,
+    loading,
+    cityClimate,
+    setCityClimate,
+    temperatureUnit,
+    setTemperatureUnit,
+  } = useWeather();
   return (
     <main className="flex min-h-screen flex-col  items-center justify-between p-12 mx-20 ">
       <div className="flex  p-4 gap-4 items-start w-full">
-        <SideBar />
+        <SideBar unit={temperatureUnit} cityClimate={cityClimate!} />
         <div className="flex gap-12 w-full flex-col">
           <TopBar
             onUnitChange={setTemperatureUnit}
