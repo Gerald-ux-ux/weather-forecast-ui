@@ -9,7 +9,8 @@ type SideBarProps = {
 
 export default function SideBar({ cityClimate, unit }: SideBarProps) {
   return (
-    <div className="w-3/12  flex flex-col items-center justify-evenly   border-primary border-r h-screen">
+    <div className="w-4/12   flex flex-col items-center justify-center   border-primary border-r h-screen">
+      <p className="font-semibold mr-4 text-2xl">Todays Temperature</p>
       {cityClimate?.list?.slice(0, 1).map((weather) => (
         <div className="flex  text-primary p-4 gap-6  flex-col">
           <div

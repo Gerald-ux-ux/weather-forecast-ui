@@ -17,7 +17,7 @@ export default function Home() {
     setTemperatureUnit,
   } = useWeather();
   return (
-    <main className="flex min-h-screen flex-col  items-center justify-between p-12 mx-20 ">
+    <main className="flex min-h-screen flex-col  items-center justify-between py-2 ">
       <div className="flex  p-4 gap-4 items-start w-full">
         <SideBar unit={temperatureUnit} cityClimate={cityClimate!} />
         <div className="flex gap-12 w-full flex-col">
