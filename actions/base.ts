@@ -10,6 +10,7 @@ export async function GET<T>(url: string) {
     console.log("this is res", res);
     return res as T;
   } catch (error: any) {
+    console.log('error', error)
     return error;
   }
 }
